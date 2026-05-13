@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var arr = [10,20,30,40];
+    var len = arr.length;
+    for (let i = 0; i < arr.length; i++){
+        console.log(arr[i])
+    }
+    //for in
+    for(let i in arr){
+        console.log(i); // arr의 index가 순서대로 출력
+    }
+    //for of
+    for(let i of arr){
+        console.log(i); // arr의 들어있는 값이 순서대로 출력
+    }
+
+    console.log("==============================================================")
+    var person = {
+        name: '홍길동',
+        age: 20,
+        tel: "010-1234-5678"
+    }
+    person.age
+    person['age']
+
+
+    // for of  는 불가
+    for (let i in person){ //1번째가져와서 출력~ 2번째 가져와서 출력~ 3번째~~
+        console.log(i); // person의 key가 순서대로 출력
+        console.log(person[i]); // person의 i(ket)에 해당하는 value를 가져옴
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
