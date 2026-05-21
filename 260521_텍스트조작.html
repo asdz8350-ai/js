@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <div>
+        DIV입니다
+    </div>
+    <ul>
+        <li>LI1</li>
+        <li>LI1</li>
+    </ul>
+</section>
+    <article>
+        <div>ARTICLE의 DIV당</div>
+    </article>
+
+
+
+
+
+</body>
+</html>
+<script>
+    let section = document.querySelector(`section`)
+
+    let stc = section.textContent;
+    let sit = section.innerText;
+    let stn = section.innerHTML;
+    console.log(`stc: ${stc}`);
+    console.log(`sit: ${sit}`);
+    console.log(`stn: ${stn}`);
+    /////////////////////////////////////////////////
+    let article = document.querySelector(`article`);
+    // article.textContent = 'ARTICLE이당';
+    article.innerText = '      ARTICLE이당     ';
+    article.innerHTML = '      ARTICLE이당     ';
+
+
+
+
+
+
+
+</script>
