@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Documant</title>
+</head>
+<style>
+    section{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 300px;
+        background-color: darkgray;
+        transition-duration: 1.5s;
+    }
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: chocolate;
+        text-align: center;
+        margin: 0 10px;
+        cursor: pointer;
+        transition-delay: 1s;
+        transition-duration: 1.5s;
+
+    }
+</style>
+<body>
+    <section>
+        <div class="d1">Width: 80%</div>
+        <div class="d2">Width: 60%</div>
+        <div class="d3">Width: 40%</div>
+    </section>
+
+
+
+
+
+</body>
+</html>
+<script>
+    let d1 = document.querySelector('.d1')
+    let d2 = document.querySelector('.d2')
+    let d3 = document.querySelector('.d3')
+    let section = document.querySelector('section')
+
+    // d1.onclick = () => {
+    //     // for(let i = 100; i >= 80; i--){
+    //         console.log(section.style.width = i + '%')
+    //     }
+
+    d1.onclick = () => {
+        section.style.width = '80%'
+        d1.style.background = 'red'
+
+    }
+    d2.onclick = () => {
+        section.style.width = '60%'
+        d2.style.background = 'red'
+
+    }
+    d3.onclick = () => {
+        section.style.width ='40%'
+        d3.style.background = 'red'
+
+    }
+/********************************************************/
+    let section = document.querySelector('section');
+    let divs = document.querySelectorAll('div');
+    let widths = [80, 60, 40];
+    for (let i = 0; i < divs.length; i++) {
+        let div = divs[i];
+        div.onclick = () => {
+            // 방법1
+            // section.style.width = (80 - i * 20) + '%';
+            // 방법2
+            // section.style.width = widths[i] + '%';
+            // 방법3
+            let clazz = div.getAttribute('class'); // w-80;
+            let w = clazz.split('-')[1]; //['w', '80']
+            section.style.width = w + '%';
+
+
+            div.style.backgroundColor = 'red';
+        }
+    }
+
+
+
+
+
+</script>
