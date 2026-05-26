@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>캐러셀</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        position: relative;
+        width: 1000px;
+        height: 600px;
+        background-color: greenyellow;
+        overflow: hidden;
+    }
+    .carousel{
+        display: inline-flex;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+        height: 100%;
+        background-color: darkblue;
+        cursor: pointer;
+        transition-duration: 1s;
+        /*transform: translateX(-2000px);*/
+    }
+    .carousel > .slide{
+        width: 1000px;
+        border: 1px solid black;
+        background-color: lightgray;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .slide{
+        position: relative;
+    }
+    .slide > div{
+        position: absolute;
+        width: 70%;
+        left: 10px;
+        bottom: 10px;
+        background-color: rgba(0,0,0,0.4);
+        color: white;
+        font-size: 50px;
+    }
+    .button_container{
+        display: flex;
+        position: absolute;
+        padding: 0 20px;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .button_container > button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        border-radius: 50%;
+        background-color: black;
+        color: white;
+        z-index: 99;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <section class="container">
+        <div class="button_container">
+            <button type="button">⬅</button>
+            <button type="button">➡</button>
+        </div>
+
+
+        <ul class="carousel">
+            <li class="slide">
+                <div>
+                    <h2>TITLE</h2>
+                    <p>맹구가 수염이 났다</p>
+                </div>
+                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTEyMTdfMTI2%2FMDAxNzY1OTUxNjczNTky.yYnhG1DfBfxVTZvo0d4w6Sx8WBJ-IN4eBsryMA74DfEg.PNU0AVVxcphXGg4j8vmFsv1rXxMo7vLRdQsXd0hNknQg.JPEG%2F6f7129378ea97518cbbde6fccf50e750.jpg&type=sc960_832" alt=""></li>
+            <li class="slide">
+                <div>
+                    <h2>TITLE</h2>
+                    <p>맹구가 기분이 좋다</p>
+                </div>
+                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTAxMDFfMzYg%2FMDAxNzM1NjkwMzUxMDA3.6nPCm8ymZCbuL7kS1tC9fBUVgX5NyRehk9Vct0FN0y0g.eczlVnp7teT39Cm4OwCoJMmxZql1l-Pxxc_84PQ266Ug.JPEG%2FIMG_0300.jpg&type=sc960_832" alt=""></li>
+            <li class="slide">
+                <div>
+                    <h2>TITLE</h2>
+                    <p>맹구가 마음에 드는 돌을 발견했다</p>
+                </div>
+                <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fupload3.inven.co.kr%2Fupload%2F2025%2F10%2F07%2Fbbs%2Fi1596472214.jpg%3FMW%3D800&type=sc960_832" alt=""></li>
+        </ul>
+    </section>
+
+
+</body>
+</html>
+<script>
+    const carousel = document.querySelector('.carousel');
+    const [leftBtn, rightBtn] = document.querySelectorAll('.button_container > button');
+    document.querySelectorAll('.slide img').forEach(img => {
+        img.draggable = false;
+    })
+
+
+    let movedX = 0;
+    leftBtn.onclick = () => {
+        // if(movedX > 0){
+        // }
+        let slides = document.querySelectorAll('.slide');
+        let lastSlide = slides[slides.length - 1];
+        carousel.appendChild(lastSlide);
+
+
+        movedX = movedX + 1000;
+        carousel.style.transform = `translateX(${movedX}px)`;
+    }
+    rightBtn.onclick = () => {
+        // if(movedX > -2000){
+        // }
+        movedX = movedX - 1000;
+        carousel.style.transform = `translateX(${movedX}px)`;
+    }
+
+
+
+
+
+
+</script>
+
+
+
+
+
+

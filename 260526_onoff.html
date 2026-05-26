@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ON OFF</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        display: inline-block;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: lightgray;
+        border-radius: 12px;
+        color: white;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    }
+    li.active{
+        background-color: black;
+        color: white;
+    }
+    .a{
+        font-weight: bold;
+    }
+    div{
+        height: 200px;
+
+    }
+    div.active{
+        display: block;
+    }
+    .d1{
+        display: none;
+        background-color: red;
+    }
+    .d2{
+        display: none;
+        background-color: blue;
+    }
+    .d3{
+        display: none;
+        background-color: green;
+    }
+</style>
+<body>
+    <ul>
+        <li class="a active">목록1</li>
+        <li class="a">목록2</li>
+        <li class="a">목록3</li>
+    </ul>
+
+    <section>
+        <div class="d1 "></div>
+        <div class="d2 active"></div>
+        <div class="d3"></div>
+    </section>
+
+
+</body>
+</html>
+<script>
+    // let lies = document.querySelectorAll('li');
+
+    // lies[0].onclick = () => {
+    //     lies[0].style.backgroundColor = 'black';
+    //     lies[0].style.color = 'white';
+    // }
+    // lies[1].onclick = () => {
+    //     lies[1].style.backgroundColor = 'black';
+    //     lies[1].style.color = 'white';
+    // }
+    // lies[2].onclick = () => {
+    //     lies[2].style.backgroundColor = 'black';
+    //     lies[2].style.color = 'white';
+    // }
+/**********************************************************/
+    // function init(){
+    //     for(let j = 0; j < lies.length; j++){
+    //         lies[j].removeAttribute('class');
+    //     }
+    // }
+    //
+    // let lies = document.querySelectorAll('li');
+    // for(let i = 0; i < lies.length; i++){
+    //     lies[i].onclick = () => {
+    //         init();
+    //         lies[i].setAttribute('class', 'active');
+    //     }
+    // }
+    /**********************************************************/
+
+    function init(){
+        for(let j = 0; j < lies.length; j++){
+            // 현재 class 목록에서 active를 제거해줘
+            lies[j].classList.remove('active');
+            divs[j].classList.remove('active');
+        }
+    }
+    let divs = document.querySelectorAll('div');
+    let lies = document.querySelectorAll('li');
+    for(let i = 0; i < lies.length; i++){
+        lies[i].onclick = () => {
+            init();
+            // 원래 가지고 있던 클래스 목록에 active 를 추가해줘
+            lies[i].classList.add('active');
+            divs[i].classList.add('active');
+        }
+    }
+
+
+
+
+
+
+
+
+
+</script>
